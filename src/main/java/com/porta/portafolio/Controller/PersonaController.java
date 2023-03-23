@@ -15,15 +15,14 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
-
+//@RequestMapping("/personas")
 public class PersonaController {
 
     @Autowired
     IPersonaService ipersonaService;
     
-//    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("personas/traer")
     public List<Persona>getPersona(){
      return ipersonaService.getPersona();   

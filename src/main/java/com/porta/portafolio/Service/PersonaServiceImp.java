@@ -33,4 +33,9 @@ public class PersonaServiceImp implements IPersonaService{
        Persona persona= ipersonaRepository.findById(id).orElse(null);
        return persona;
     }
+
+    @Override
+    public boolean existsById(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
