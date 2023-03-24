@@ -13,33 +13,35 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin(origins = "*")
 @RestController
+@RequestMapping("/proyectos")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ProyectoController {
     @Autowired
     IProyectoService iproyectoService;
     
-    @GetMapping("proyectos/traer")
+    @GetMapping("/traer")
     public List<Proyecto>getProyecto(){
      return iproyectoService.getProyecto();   
     }
     
     @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/proyectos/crear")
+    @PostMapping("/crear")
     public void createProyecto(@RequestBody Proyecto proyecto){
         iproyectoService.saveProyecto(proyecto);
     }
     
     @PreAuthorize("hasRole('ADMIN')")
-    @DeleteMapping("/proyectos/borrar/{id}")
+    @DeleteMapping("/borrar/{id}")
     public void deleteProyecto (@PathVariable Integer id){
         iproyectoService.deleteProyecto(id);
     }
     
     @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("/proyectos/editar/{id}")
+    @PutMapping("/editar/{id}")
     public Proyecto editProyecto(@PathVariable("id") Integer id,
                               @RequestBody Proyecto proyecto)
     {
@@ -50,7 +52,7 @@ public class ProyectoController {
     return proyecto;
     }
     
-    @GetMapping(path = {"/proyectos/{id}"})
+    @GetMapping(path = {"/{id}"})
     public Proyecto findProyecto(@PathVariable("id")int id){
         return iproyectoService.findProyecto(id);
     }

@@ -1,9 +1,11 @@
 com\porta\portafolio\Entity\Persona.class
 com\porta\portafolio\security\Dto\LoginUsuario.class
 com\porta\portafolio\Controller\HelloController.class
+com\porta\portafolio\Dto\dtoExperiencia.class
 com\porta\portafolio\Repository\IPersonaRepository.class
 com\porta\portafolio\Repository\ISkillRepository.class
 com\porta\portafolio\security\Jwt\JwtTokenFilter.class
+com\porta\portafolio\Dto\dtoEducacion.class
 com\porta\portafolio\security\Service\UsuarioService.class
 com\porta\portafolio\Controller\ExperienciaController.class
 com\porta\portafolio\Repository\IEstudioRepository.class
@@ -19,6 +21,7 @@ com\porta\portafolio\security\Jwt\JwtEntryPoint.class
 com\porta\portafolio\Repository\IProyectoRepository.class
 com\porta\portafolio\security\Dto\NuevoUsuario.class
 com\porta\portafolio\Controller\ContactoController.class
+com\porta\portafolio\Dto\dtoPersona.class
 com\porta\portafolio\security\Jwt\JwtProvider.class
 com\porta\portafolio\Service\EstudioServiceImp.class
 com\porta\portafolio\Service\ProyectoServiceImp.class
@@ -32,6 +35,7 @@ com\porta\portafolio\Repository\IContactoRepository.class
 com\porta\portafolio\security\Entity\Usuario.class
 com\porta\portafolio\Service\PersonaServiceImp.class
 com\porta\portafolio\security\MainSecurity.class
+com\porta\portafolio\Dto\dtoProyecto.class
 com\porta\portafolio\Entity\Skill.class
 com\porta\portafolio\Controller\ProyectoController.class
 com\porta\portafolio\security\Entity\UsuarioPrincipal.class
@@ -44,6 +48,7 @@ com\porta\portafolio\security\Entity\Rol.class
 com\porta\portafolio\Controller\EstudioController.class
 com\porta\portafolio\Interface\IProyectoService.class
 com\porta\portafolio\security\Repository\UsuarioRepository.class
+com\porta\portafolio\Dto\dtoSkills.class
 com\porta\portafolio\Repository\IExperienciaRepository.class
 com\porta\portafolio\security\Service\RolService.class
 com\porta\portafolio\Entity\Contacto.class

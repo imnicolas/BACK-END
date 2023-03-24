@@ -13,34 +13,36 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@CrossOrigin(origins="*")
+@RequestMapping("/experiencias")
+@CrossOrigin(origins="http://localhost:4200")
 public class ExperienciaController {
     @Autowired
     IExperienciaService iexperienciaService;
     
-    @GetMapping("experiencias/traer")
+    @GetMapping("/traer")
     public List<Experiencia>getExperiencia(){
      return iexperienciaService.getExperiencia();   
     }
     
     @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/experiencias/crear")
+    @PostMapping("/crear")
     public void createExperiencia(@RequestBody Experiencia experiencia){
         iexperienciaService.saveExperiencia(experiencia);
     }
     
     @PreAuthorize("hasRole('ADMIN')")
-    @DeleteMapping("/experiencias/borrar/{id}")
+    @DeleteMapping("/borrar/{id}")
     public void deleteExperiencia (@PathVariable Integer id){
         iexperienciaService.deleteExperiencia(id);
     }
     
     @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("/experiencias/editar/{id}")
+    @PutMapping("/editar/{id}")
     public Experiencia editExperiencia(@PathVariable("id") Integer id,
                               @RequestBody Experiencia experiencia)
     {
@@ -51,7 +53,7 @@ public class ExperienciaController {
     return experiencia;
     }
     
-    @GetMapping(path = {"/experiencias/{id}"})
+    @GetMapping(path = {"/{id}"})
     public Experiencia findExperiencia(@PathVariable("id")int id){
         return iexperienciaService.findExperiencia(id);
     }

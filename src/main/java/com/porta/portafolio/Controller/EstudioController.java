@@ -13,34 +13,36 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin(origins="*")
+@RequestMapping("/estudios")
+@CrossOrigin(origins="http://localhost:4200")
 public class EstudioController {
     
     @Autowired
     IEstudioService iestudioService;
     
-    @GetMapping("estudios/traer")
+    @GetMapping("/traer")
     public List<Estudio>getEstudio(){
      return iestudioService.getEstudio();   
     }
     
     @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/estudios/crear")
+    @PostMapping("/crear")
     public void createEstudio(@RequestBody Estudio estudio){
         iestudioService.saveEstudio(estudio);
     }
     
     @PreAuthorize("hasRole('ADMIN')")
-    @DeleteMapping("/estudios/borrar/{id}")
+    @DeleteMapping("/borrar/{id}")
     public void deleteEstudio (@PathVariable Integer id){
         iestudioService.deleteEstudio(id);
     }
     
     @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("/estudios/editar/{id}")
+    @PutMapping("/editar/{id}")
     public Estudio editEstudio(@PathVariable("id") Integer id,
                               @RequestBody Estudio estudio)
     {
@@ -51,7 +53,7 @@ public class EstudioController {
     return estudio;
     }
     
-    @GetMapping(path = {"/estudios/{id}"})
+    @GetMapping(path = {"/{id}"})
     public Estudio listarId(@PathVariable("id")int id){
         return iestudioService.findEstudio(id);
     }

@@ -13,34 +13,36 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
+@RequestMapping("/contactos")
 @CrossOrigin (origins="*")
 public class ContactoController {
     @Autowired
     IContactoService icontactoService;
     
-    @GetMapping("contactos/traer")
+    @GetMapping("/traer")
     public List<Contacto>getContacto(){
      return icontactoService.getContacto();   
     }
     
     @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/contactos/crear")
+    @PostMapping("/crear")
     public void createContacto(@RequestBody Contacto contacto){
         icontactoService.saveContacto(contacto);
     }
     
     @PreAuthorize("hasRole('ADMIN')")
-    @DeleteMapping("/contactos/borrar/{id}")
+    @DeleteMapping("/borrar/{id}")
     public void deleteContacto (@PathVariable Integer id){
         icontactoService.deleteContacto(id);
     }
     
     @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("/contactos/editar/{id}")
+    @PutMapping("/editar/{id}")
     public Contacto editContacto(@PathVariable ("id") Integer id,
                               @RequestBody Contacto contacto)
     {
@@ -51,7 +53,7 @@ public class ContactoController {
     return contacto;
     }
     
-    @GetMapping(path = {"/contactos/{id}"})
+    @GetMapping(path = {"/{id}"})
     public Contacto findContacto(@PathVariable ("id") int id){
         return icontactoService.findContacto(id);
     }
