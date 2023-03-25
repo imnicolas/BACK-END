@@ -27,6 +27,7 @@ com\porta\portafolio\Service\EstudioServiceImp.class
 com\porta\portafolio\Service\ProyectoServiceImp.class
 com\porta\portafolio\Entity\Proyecto.class
 com\porta\portafolio\Interface\IContactoService.class
+com\porta\portafolio\WebConfig.class
 com\porta\portafolio\security\Dto\JwtDto.class
 com\porta\portafolio\Interface\ISkillService.class
 com\porta\portafolio\Service\ContactoServiceImp.class

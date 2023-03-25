@@ -1,8 +1,8 @@
 
-FROM amazoncorretto:8-alpine-jdk
-MAINTAINER nico
+FROM amazoncorretto:11-alpine-jdk
+MAINTAINER mora
 
-copy target/portafolio-0.0.1-SNAPSHOT.jar argentina-developer.jar
-entrypoint ["java","-jar","/argentina-developer.jar"]
+copy target/portafolio-0.0.1-SNAPSHOT.jar portafolio-app.jar
+entrypoint ["java","-jar","/portafolio-app.jar"]
 
 CMD ["/bin/sh"]
