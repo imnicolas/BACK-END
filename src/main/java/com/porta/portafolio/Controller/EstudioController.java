@@ -29,19 +29,19 @@ public class EstudioController {
      return iestudioService.getEstudio();   
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/crear")
     public void createEstudio(@RequestBody Estudio estudio){
         iestudioService.saveEstudio(estudio);
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/borrar/{id}")
     public void deleteEstudio (@PathVariable Integer id){
         iestudioService.deleteEstudio(id);
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/editar/{id}")
     public Estudio editEstudio(@PathVariable("id") Integer id,
                               @RequestBody Estudio estudio)

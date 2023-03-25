@@ -29,17 +29,17 @@ public class PersonaController {
     public List<Persona>getPersona(){
      return ipersonaService.getPersona();   
     }
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/crear")
     public void createPersona(@RequestBody Persona persona){
         ipersonaService.savePersona(persona);
     }
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/borrar/{id}")
     public void deletePersona (@PathVariable Integer id){
         ipersonaService.deletePersona(id);
     }
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/editar/{id}")
     public Persona editPersona(@PathVariable("id") Integer id,
                               @RequestBody Persona persona)

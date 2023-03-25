@@ -28,19 +28,19 @@ public class ProyectoController {
      return iproyectoService.getProyecto();   
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/crear")
     public void createProyecto(@RequestBody Proyecto proyecto){
         iproyectoService.saveProyecto(proyecto);
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/borrar/{id}")
     public void deleteProyecto (@PathVariable Integer id){
         iproyectoService.deleteProyecto(id);
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/editar/{id}")
     public Proyecto editProyecto(@PathVariable("id") Integer id,
                               @RequestBody Proyecto proyecto)
