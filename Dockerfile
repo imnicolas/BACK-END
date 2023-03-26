@@ -1,7 +1,7 @@
 
 FROM amazoncorretto:8-alpine-jdk
-MAINTAINER mora
+MAINTAINER MoraCastelliGaraycochea
 
-copy target/portafolio-0.0.1-SNAPSHOT.jar portafolio-app.jar
-entrypoint ["java","-jar","/portafolio-app.jar"]
+copy target/portafolio-0.0.1-SNAPSHOT.jar portafolio.jar
+entrypoint ["java","-jar","/portafolio.jar"]
 
